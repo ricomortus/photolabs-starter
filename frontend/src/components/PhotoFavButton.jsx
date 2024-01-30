@@ -4,12 +4,22 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton() {
+  {/**below is the logic I need to move to the new component */}
+  const [like, setLike] = useState(false);
+
+  const clickHandler = () => {
+    setLike(prevLike => !prevLike);
+    console.log('clicked!', like);
+  }
+
   return (
-    <div className="photo-list__fav-icon">
-      <div className="photo-list__fav-icon-svg">
-        {/* Insert React */}
+      <div>
+        <button className="photo-list__fav-icon" onClick={()=>{
+        setLike(!like);
+        }}>
+        <FavIcon selected={like}/>
+        </button>
       </div>
-    </div>
   );
 }
 

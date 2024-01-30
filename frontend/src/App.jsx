@@ -5,7 +5,6 @@ import './App.scss';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-
   const sampleDataForPhotoListItem = {
     id: "1",
     location: {
@@ -19,11 +18,9 @@ const App = () => {
 
   const photos = new Array(3).fill(sampleDataForPhotoListItem);
 
-
   return (
     <div className="App">
-      {photos.map((photo) =>  <PhotoListItem key={photo.id} photo={photo} />)}
-     
+      {photos.map((photo, index) =>  <PhotoListItem key={index} photo={photo} />)}
     </div>
   );
 };
