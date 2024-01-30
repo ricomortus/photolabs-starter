@@ -14,9 +14,7 @@ function PhotoFavButton() {
 
   return (
       <div>
-        <button className="photo-list__fav-icon" onClick={()=>{
-        setLike(!like);
-        }}>
+        <button className="photo-list__fav-icon" onClick={clickHandler}>
         <FavIcon selected={like}/>
         </button>
       </div>
