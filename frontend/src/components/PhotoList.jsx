@@ -1,6 +1,6 @@
 import React from "react";
-
 import "../styles/PhotoList.scss";
+import PhotoListItem from "./PhotoListItem";
 
 const sampleDataForPhotoList = [
   {
@@ -54,12 +54,12 @@ const sampleDataForPhotoList = [
       profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
     },
   },
-];
-
+]
+  
 const PhotoList = () => {
   return (
     <ul className="photo-list">
-      {/* Insert React */}
+      {sampleDataForPhotoList.map((photo, index) =>  <PhotoListItem key={index} photo={photo} />)}
     </ul>
   );
 };
