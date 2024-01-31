@@ -1,15 +1,13 @@
 // frontend/src/App.jsx
 import React from 'react';
-import TopNavigation from 'components/TopNavigationBar';
-import PhotoList from './components/PhotoList';
 import './App.scss';
+import HomeRoute from './routes/HomeRoute'
 
 
  const App = () => (
    <div className="App">
      {/* { Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) } */}
-     <TopNavigation />
-     <PhotoList/>
+     <HomeRoute />
    </div>
  )
 
