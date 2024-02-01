@@ -11,7 +11,7 @@ const PhotoDetailsModal = ({toggleModal, photo, favoritePhotos, toggleFavorite, 
   console.log(similarPhotosArray);
 
   return (
-    <div className="photo-details-modal">
+    <div className="photo-details-modal" style={{ zIndex: 10000 }}>
       <button className="photo-details-modal__close-button" onClick={toggleModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
@@ -25,7 +25,7 @@ const PhotoDetailsModal = ({toggleModal, photo, favoritePhotos, toggleFavorite, 
         </div>  
       </div>
       <div className="photo-details-modal__similar-photos">
-      <PhotoList photos={similarPhotosArray} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} />
+      <PhotoList photos={similarPhotosArray} toggleFavorite={toggleFavorite} favoritePhotos={favoritePhotos} isFavorite={isFavorite}/>
       </div>
       
     </div>
