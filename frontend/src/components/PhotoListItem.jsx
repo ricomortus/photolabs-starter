@@ -21,7 +21,7 @@ const PhotoListItem = (props) => {
       {/**Pass the toggleFavorite function to the onClick event and the boolean value of isFavorite */}
       <PhotoFavButton onClick={toggleFavorite} isFavorite={isFavorite}/>
       <img src={photo.urls.regular} className="photo-list__image" onClick={toggleModal}/>
-      {isModalOpen && < PhotoDetailsModel toggleModal={toggleModal}/> }
+      {isModalOpen && < PhotoDetailsModel toggleModal={toggleModal} photo={photo}/> }
       <div className="photo-list__user-info">
         <img src={photo.user.profile}className="photo-list__user-profile"/>
         <p>{photo.user.name}</p>
