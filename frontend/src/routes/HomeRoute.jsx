@@ -9,8 +9,8 @@ const HomeRoute = (props) => {
   const toggleFavorite = (photoId) => {
     setFavoritePhotos(prevFavorites => {
       return prevFavorites.includes(photoId) ? prevFavorites.filter(id => id !== photoId) : [...prevFavorites, photoId];
-    })
-  }
+    });
+  };
 
   return (
     <div className="home-route">

@@ -4,13 +4,6 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton({ onClick, isFavorite}) {
-  // const [like, setLike] = useState(false);
-
-  // const clickHandler = () => {
-  //   setLike(prevLike => !prevLike);
-  //   console.log('clicked!', like);
-  // }
-
   return (
       <div>
         <button className="photo-list__fav-icon" onClick={onClick}>
@@ -21,6 +14,3 @@ function PhotoFavButton({ onClick, isFavorite}) {
 }
 
 export default PhotoFavButton;
-
-
-// .reduce .filter or another built-in js array method
