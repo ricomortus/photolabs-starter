@@ -19,21 +19,6 @@ const useApplicationData = () => {
     });
   };
 
-  // Corresponds to onClosePhotoDetailsModal
-  const onClosePhotoDetailsModal = () => {
-    setModalOpen(false);
-  };
-
-  // Corresponds to setPhotoSelected
-  const setPhotoSelected = (photo) => {
-    setSelectedPhoto(photo);
-  };
-
-  // Corresponds to updateToFavPhotoIds
-  const updateToFavPhotoIds = (photoId) => {
-    toggleFavorite(photoId);
-  };
-
   return {
     state: {
       isModalOpen,
@@ -41,10 +26,7 @@ const useApplicationData = () => {
       favoritePhotos,
     },
     toggleModal,
-    toggleFavorite,
-    setPhotoSelected,
-    onClosePhotoDetailsModal,
-    updateToFavPhotoIds,
+    toggleFavorite
   };
 };
 
