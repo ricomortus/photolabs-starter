@@ -1,9 +1,10 @@
 import React from 'react';
 import PhotoList from '../components/PhotoList'
+import PhotoFavButton from '../components/PhotoFavButton'
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({toggleModal, photo, favoritePhotos, toggleFavorite}) => {
+const PhotoDetailsModal = ({toggleModal, photo, favoritePhotos, toggleFavorite, isFavorite}) => {
   console.log(photo);
   const { similar_photos } = photo;
   const similarPhotosArray = Object.values(similar_photos);
@@ -14,6 +15,7 @@ const PhotoDetailsModal = ({toggleModal, photo, favoritePhotos, toggleFavorite})
       <button className="photo-details-modal__close-button" onClick={toggleModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
+      <PhotoFavButton onClick={toggleFavorite} isFavorite={isFavorite}/>
       <div className="photo-details-modal__image">
         <img src={photo.urls.full} alt={photo.description} className="photo-details-modal__image" />
         <div className="photo-details-modal__header">
