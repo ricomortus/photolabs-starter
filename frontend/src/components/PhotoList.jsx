@@ -3,6 +3,7 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
+  //Destructure the photos, toggleFavorite function, and favoritePhotos array props from HomeRoute
   const { photos, toggleFavorite, favoritePhotos }= props;
   return (
     <ul className="photo-list">
