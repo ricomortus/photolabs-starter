@@ -4,19 +4,9 @@ import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  //set the default favoritePhotos state to am empty array and extract the setter function as setFavoritePhotos
-  const [favoritePhotos, setFavoritePhotos] = useState([]);
+  
 
-  //create a toggleFavorite function
-  const toggleFavorite = (photoId) => {
-    //use the setter function to set the state of favorited or unfavorited
-    setFavoritePhotos(prevFavorites => {
-      //check whether the previous state of favoritePhotos(prevFavorites) contains the photoId, if it does unfavourite it by filtering it out, otherwise, add the photoId to the favorites array
-      return prevFavorites.includes(photoId) ? prevFavorites.filter(id => id !== photoId) : [...prevFavorites, photoId];
-    });
-  };
-
-  const { isModalOpen, toggleModal, selectedPhoto } = props;
+  const { isModalOpen, toggleModal, selectedPhoto, toggleFavorite, favoritePhotos } = props;
 
   return (
     <div className="home-route">
