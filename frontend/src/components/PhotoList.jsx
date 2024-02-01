@@ -4,7 +4,7 @@ import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
   //Destructure the photos, toggleFavorite function, and favoritePhotos array props from HomeRoute
-  const { photos, toggleFavorite, favoritePhotos, isModalOpen, toggleModal}= props;
+  const { photos, toggleFavorite, favoritePhotos, isModalOpen, toggleModal, selectedPhoto }= props;
   return (
     <ul className="photo-list">
       {photos.map((photo) =>  (
@@ -13,8 +13,10 @@ const PhotoList = (props) => {
           photo={photo} 
           toggleFavorite={() => toggleFavorite(photo.id)}
           isFavorite={favoritePhotos.includes(photo.id)}
+          favoritePhotos={favoritePhotos}
           isModalOpen={isModalOpen}
           toggleModal={toggleModal}
+          selectedPhoto={selectedPhoto}
         />
       ))}
     </ul>
