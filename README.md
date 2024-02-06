@@ -14,13 +14,13 @@ The PhotoLabs project for the Web Development React course programming.
 ## Screenshots
 
 Homepage:
-![Listings]()
+![Listings](https://github.com/ricomortus/photolabs-starter/blob/main/docs/Homepage.png?raw=true)
 
 Photos organized by topics:
-![BnB Search]()
+![BnB Search](https://github.com/ricomortus/photolabs-starter/blob/main/docs/Topics.png?raw=true)
 
 Modal View:
-![Login]()
+![Login](https://github.com/ricomortus/photolabs-starter/blob/main/docs/Modal.png?raw=true)
 
 # Photolabs
 
