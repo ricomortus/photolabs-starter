@@ -10,7 +10,8 @@ const App = () => {
   const {
     state,
     toggleModal,
-    toggleFavorite
+    toggleFavorite,
+    fetchPhotosByTopic
   } = useApplicationData();
 
   return (
@@ -23,6 +24,7 @@ const App = () => {
         toggleModal={toggleModal}
         toggleFavorite={toggleFavorite}
         favoritePhotos={state.favoritePhotos}
+        fetchPhotosByTopic={fetchPhotosByTopic}
       />
     </div>
   );

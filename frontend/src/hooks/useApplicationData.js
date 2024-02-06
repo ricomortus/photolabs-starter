@@ -16,7 +16,8 @@ const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO', // Action to select a photo.
   TOGGLE_FAVORITE: 'TOGGLE_FAVORITE', // Action to add/remove a photo from favorites.
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  SET_PHOTOS_BY_TOPIC: 'SET_PHOTOS_BY_TOPIC',
 };
 
 // The reducer function that will handle state changes based on actions.
@@ -56,6 +57,11 @@ function reducer(state, action) {
         ...state,
         topicData: action.payload
       }
+    case ACTIONS.SET_PHOTOS_BY_TOPIC:
+      return {
+        ...state,
+        photoData: action.payload,
+      };
     default:
       // Handle unknown action types.
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -66,6 +72,13 @@ function reducer(state, action) {
 const useApplicationData = () => {
   //state = initialState & dispatch = reducer
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const fetchPhotosByTopic = (topicId) => {
+    fetch(`http://localhost:8001/api/topics/photos/${topicId}`)
+      .then(res => res.json())
+      .then(data => dispatch({ type: ACTIONS.SET_PHOTOS_BY_TOPIC, payload: data }))
+      .catch(error => console.error("Failed to fetch photos for topic", error));
+  };
 
   useEffect(() => {
     fetch('http://localhost:8001/api/photos')
@@ -100,6 +113,7 @@ const useApplicationData = () => {
     toggleModal, // Function to open/close the modal and optionally set a selected photo.
     selectPhoto, // Function to set a selected photo.
     toggleFavorite, // Function to add/remove a photo from favorites.
+    fetchPhotosByTopic,
   };
 };
 
