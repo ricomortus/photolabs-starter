@@ -1,5 +1,26 @@
 # react-photolabs
+
 The PhotoLabs project for the Web Development React course programming.
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- SCSS
+- JavaScript
+- React
+- SQL
+
+## Screenshots
+
+Homepage:
+![Listings]()
+
+Photos organized by topics:
+![BnB Search]()
+
+Modal View:
+![Login]()
 
 # Photolabs
 
