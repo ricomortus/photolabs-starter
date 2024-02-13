@@ -36,17 +36,18 @@ function reducer(state, action) {
         ...state, // Spread the current state.
         selectedPhoto: action.payload, // Update selectedPhoto with the payload.
       };
-    case ACTIONS.TOGGLE_FAVORITE:
-      // Check if the photo is already a favorite.
-      const isFavorite = state.favoritePhotos.includes(action.payload);
-      // Add or remove the photo from the favorites list.
-      const favoritePhotos = isFavorite
-        ? state.favoritePhotos.filter(id => id !== action.payload) // Remove if exists.
-        : [...state.favoritePhotos, action.payload]; // Add if not exists.
-      return {
-        ...state, // Spread the current state.
-        favoritePhotos, // Update the favoritePhotos list.
+      case ACTIONS.TOGGLE_FAVORITE:
+        // Check if the photo is already a favorite.
+        const isFavorite = state.favoritePhotos.some(favPhoto => favPhoto.id === action.payload.id);
+        // Add or remove the photo from the favorites list.
+        const favoritePhotos = isFavorite
+          ? state.favoritePhotos.filter(photo => photo.id !== action.payload.id) // Remove if exists.
+          : [...state.favoritePhotos, action.payload]; // Add if not exists.
+        return {
+          ...state, // Spread the current state.
+          favoritePhotos, // Update the favoritePhotos list.
       };
+      
     case ACTIONS.SET_PHOTO_DATA:
       return {
         ...state,
@@ -104,6 +105,7 @@ const useApplicationData = () => {
 
   // Function to toggle a photo's favorite status.
   const toggleFavorite = (photoId) => {
+    console.log('Toggling favorite for photo ID:', photoId);
     dispatch({ type: ACTIONS.TOGGLE_FAVORITE, payload: photoId });
   };
 
