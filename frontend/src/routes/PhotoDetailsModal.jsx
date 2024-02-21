@@ -1,7 +1,6 @@
 // PhotoDetailsModal.jsx
 import React from 'react';
 import PhotoList from '../components/PhotoList'
-import PhotoFavButton from '../components/PhotoFavButton'
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
