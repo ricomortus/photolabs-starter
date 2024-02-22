@@ -1,11 +1,14 @@
-// PhotoDetailsModal.jsx
 import React from 'react';
-import PhotoList from '../components/PhotoList'
-import '../styles/PhotoDetailsModal.scss'
+import PhotoList from '../components/PhotoList';
+import PhotoFavButton from '../components/PhotoFavButton'; // Import the PhotoFavButton component
+import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = ({ toggleModal, photo, favoritePhotos, toggleFavorite }) => {
   const similarPhotosArray = Object.values(photo.similar_photos);
+  
+  // Determine if the currently viewed photo is a favorite
+  const isFavorite = favoritePhotos.some(favPhoto => favPhoto.id === photo.id);
 
   return (
     <div className="photo-details-modal" style={{ zIndex: 10000 }}>
@@ -13,6 +16,7 @@ const PhotoDetailsModal = ({ toggleModal, photo, favoritePhotos, toggleFavorite 
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="photo-details-modal__image">
+        <PhotoFavButton onClick={() => toggleFavorite(photo.id)} isFavorite={isFavorite} />
         <img src={photo.urls.full} alt={photo.description} className="photo-details-modal__image" />
         <div className="photo-details-modal__header">
           <img src={photo.user.profile} className="photo-list__user-profile"/>
